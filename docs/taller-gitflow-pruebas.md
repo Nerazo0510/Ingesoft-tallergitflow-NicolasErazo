@@ -31,7 +31,7 @@ La partición de equivalencia permite dividir los requisitos en grupos válidos 
 | Caso 02 | 16 | Aceptado |
 
 | Caso | Codigo | Tipo | Resultado esperado |
-|----|------------|----------|  |
+|----|------------|----------|----------|
 | Caso 01 | E1234567 | Válido | Aceptado |
 | Caso 02 | E123456 | Longitud menor | Rechazado |
 | Caso 03 | E12345678 | Longitud mayor | Rechazado |
