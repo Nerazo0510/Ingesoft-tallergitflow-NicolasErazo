@@ -13,6 +13,12 @@ Tener exactamente 8 caracteres
 Iniciar con la letra E
 Los 7 restantes deben ser números.
 
+RF-03 Inscripción a Evento
+Un estudiante puede inscribirse si:
+Está registrado
+El evento tiene cupos disponibles
+No está inscrito previamente
+
 ## 3. Tecnicas de Prueba Aplicadas
 RF-01 = Análisis de Valor Límite
 Justificación
@@ -23,6 +29,13 @@ RF-02 = Particion de equivalencia
 Justificación
 El código del estudiante tiene reglas de formato.
 La partición de equivalencia permite dividir los requisitos en grupos válidos e inválidos para reducir el número de pruebas.
+
+RF-03 = Tabla de Decisión
+
+Justificación
+
+La inscripción depende de varias condiciones.
+Las tablas de decisión permiten evaluar todas las combinaciones posibles de condiciones y el resultado esperado.
 
 ## 4. Casos de Prueba Diseñados
 | Caso | Codigo | Tipo | 
@@ -37,6 +50,34 @@ La partición de equivalencia permite dividir los requisitos en grupos válidos 
 | Caso 03 | E12345678 | Longitud mayor | Rechazado |
 | Caso 04 | A1234567 | No inicia con E | Rechazado |
 
+
+Condiciones:
+C1: Estudiante registrado
+C2: Evento con cupos
+C3: Ya inscrito
+| Caso | Registrado | Cupos dispo | Ya inscrito | Resultado |
+|----|------------|----------|----------| ----------|
+| Caso 01 | si | si | no | Aceptado |
+| Caso 02 | no | si | no | Rechazado |
+| Caso 03 | si | no | no | Rechazado |
+| Caso 04 | si | si | si | Rechazado |
+| Caso 05 | no | no | no | Rechazado |
+
 ## 5. Trazabilidad
 
+| Requerimiento | Tecnica |  
+|----|------------|
+| RF-01 | Valor Límite |
+| RF-02 | Partición de Equivalencia |
+| RF-03 | Tabla de Decisión |
+
 ## 6. Gestion de Versiones (GitFlow)
+
+Para el desarrollo del documento se utilizó el modelo GitFlow.
+Se creó inicialmente la rama develop a partir de main.
+Posteriormente se trabajó en una rama feature específica:
+feature/rf01
+feature/rf02
+feature/rf03
+Cada rama desarrolló su sección correspondiente del documento y posteriormente se realizaron Pull Requests hacia develop.
+Finalmente, cuando el documento estuvo completo y revisado, se realizó un Pull Request de develop hacia main.
